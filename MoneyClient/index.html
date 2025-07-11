@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MoneyAPI Client</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800 p-6">
+  <h1 class="text-3xl font-bold mb-6 text-center">MoneyAPI - Interface de Cliente</h1>
+
+  <!-- Cadastro -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-2">Cadastrar Transação</h2>
+    <form id="postForm" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+      <input id="postDescription" type="text" placeholder="Descrição" required class="p-2 border rounded" />
+      <input id="postValue" type="number" step="0.01" placeholder="Valor" required class="p-2 border rounded" />
+      <input id="postCategory" type="text" placeholder="Categoria" required class="p-2 border rounded" />
+      <select id="postType" class="p-2 border rounded">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Cadastrar</button>
+    </form>
+  </section>
+
+  <!-- Visualização -->
+  <section class="mb-10">
+    <h2 class="text-xl font-semibold mb-2">Filtrar e Visualizar Transações</h2>
+    <div class="flex flex-wrap gap-4 mb-4">
+      <button onclick="getAllTransactions()" class="bg-gray-700 text-white px-4 py-2 rounded">Ver Tudo</button>
+      <input id="filterCategory" type="text" placeholder="Filtrar por Categoria" class="p-2 border rounded" />
+      <select id="filterType" class="p-2 border rounded">
+        <option value="">Tipo</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button onclick="filterTransactions()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Filtrar</button>
+    </div>
+    <table class="w-full table-auto border-collapse bg-white shadow-md rounded">
+      <thead>
+        <tr class="bg-gray-200 text-left">
+          <th class="p-2">ID</th>
+          <th class="p-2">Descrição</th>
+          <th class="p-2">Valor</th>
+          <th class="p-2">Tipo</th>
+          <th class="p-2">Categoria</th>
+          <th class="p-2">Data</th>
+        </tr>
+      </thead>
+      <tbody id="transactionsTableBody" class="divide-y"></tbody>
+    </table>
+    <div class="flex justify-between mt-4">
+  <button id="prevPage" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">← Anterior</button>
+  <button id="nextPage" class="bg-gray-300 hover:bg-gray-400 px-4 py-2 rounded">Próxima →</button>
+</div>
+
+  </section>
+
+  <!-- Bloco 3: Relatório -->
+<section class="section bg-white p-6 mt-10 rounded shadow-md max-w-3xl mx-auto">
+  <h2 class="text-2xl font-bold mb-4">Relatório Financeiro</h2>
+  <button onclick="getRelatory()" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 mb-4">
+    Gerar Relatório
+  </button>
+  <div id="relatoryOutput" class="grid grid-cols-2 gap-4">
+    <!-- Cards serão inseridos aqui -->
+  </div>
+  <div class="mt-6 flex justify-center gap-4">
+  <button
+    onclick="window.location.href='relatory-details.html?tipo=income'"
+    class="bg-green-600 text-white px-6 py-3 rounded hover:bg-green-700"
+  >
+    Ver Entradas Detalhadas
+  </button>
+  <button
+    onclick="window.location.href='relatory-details.html?tipo=expense'"
+    class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700"
+  >
+    Ver Saídas Detalhadas
+  </button>
+</div>
+</section>
+
+
+
+  <script src="javascript/main.js"></script>
+</body>
+</html>
