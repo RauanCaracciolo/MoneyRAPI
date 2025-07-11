@@ -44,12 +44,11 @@ Many people lack a simple and efficient system to:
 
 ---
 
-## 💻 Screenshots (to be added)
+## 💻 Presentation video
 
-<!-- 
-![Dashboard](link)
-![Report](link)
--->
+[![Assistir ao vídeo de apresentação](https://github.com/user-attachments/assets/541a7dd1-b371-49bf-bbee-f5b08ff6e352)](https://youtu.be/0nh9Dpo4peM)
+
+
 
 ---
 
